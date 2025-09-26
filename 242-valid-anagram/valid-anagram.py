@@ -1,13 +1,18 @@
-class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-        if (len(s)!=len(t)):
-            return False
-
-        alphabet_arr = [0]*26
-        for i,j in zip(s,t):
-            alphabet_arr[ord(i)-ord('a')]+=1
-            alphabet_arr[ord(j)-ord('a')]-=1
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        arr = [0]*26
+        for i in s:
+            arr[ord(i) - ord('a')] += 1
         
-        if all(i==0 for i in alphabet_arr):
-            return True
-        return False
+        for i in t:
+            arr[ord(i) - ord('a')] -= 1
+        
+        for i in arr:
+            if i!=0:
+                return False
+        return True
