@@ -5,7 +5,7 @@ class Solution:
             hmap[i] = hmap.get(i,0)+1
 
         for key,value in hmap.items():
-            if hmap.get(key) > 1:
+            if value > 1:
                 return True
 
         return False 
