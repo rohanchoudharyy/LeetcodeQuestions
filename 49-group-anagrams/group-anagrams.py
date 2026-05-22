@@ -6,8 +6,6 @@ class Solution:
             for j in i:
                 arr[ord(j)-ord('a')]+=1
             hmap[tuple(arr)].append(i)
-        ans=[]
-        for key,value in hmap.items():
-            ans.append(value)
-        return ans
+        
+        return list(hmap.values())
         
