@@ -1,17 +1,16 @@
-class Solution(object):
-    def subarraySum(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
-        ans=0
-        sum=0
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        sum = 0
         hmap = {}
-        hmap[0] = 1
+        hmap[0]=1
+        count = 0
+
         for i in nums:
             sum+=i
-            diff = sum-k
-            ans += hmap.get(diff,0)
-            hmap[sum] = hmap.get(sum,0)+1
-        return ans
+            if sum-k in hmap:
+                count += hmap[sum-k]
+                hmap[sum]=hmap.get(sum,0)+1
+            else:
+                hmap[sum]=hmap.get(sum,0)+1
+        
+        return count
