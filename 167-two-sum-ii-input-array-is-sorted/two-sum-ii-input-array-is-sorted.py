@@ -1,9 +1,12 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        hmap = {}
-        for index,value in enumerate(numbers):
-            k = target-value
-            if k in hmap:
-                return [hmap[k]+1,index+1]
+        i=0
+        j=len(numbers)-1
+        while i<j:
+            if numbers[i]+numbers[j] > target:
+                j-=1
+            elif numbers[i]+numbers[j] < target:
+                i+=1
             else:
-                hmap[value]=index
+                break
+        return [i+1,j+1]
