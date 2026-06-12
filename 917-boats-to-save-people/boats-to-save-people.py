@@ -8,11 +8,7 @@ class Solution:
         while i<=j:
             if people[i]+people[j] <= limit:
                 i+=1
-                j-=1
-                count+=1
-            elif people[i]+people[j] > limit:
-                count+=1
-                j-=1
-            elif i==j:
-                count+=1
+            j-=1
+            count+=1
+
         return count
