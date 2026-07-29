@@ -12,8 +12,8 @@ class Solution:
             window = s2[i:j+1]
             for char in window:
                 stringtwo[char]=stringtwo.get(char,0)+1
-                if stringone == stringtwo:
-                    return True
+            if stringone == stringtwo:
+                return True
             i+=1
             j+=1
         
